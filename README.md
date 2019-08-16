@@ -17,4 +17,4 @@ The approximation is done using the equation ![](http://www.sciweavers.org/tex2i
 * `./test/euler_test`
 
 ### License
-[MIT License](https://github.com/mathinjenkins/libexponent/blob/master/LICENSE)
+[MIT License](https://github.com/mathinjenkins/libeuler/blob/master/LICENSE)
