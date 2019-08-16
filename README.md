@@ -7,6 +7,7 @@ The approximation is done using the equation ![](http://www.sciweavers.org/tex2i
 
 ### Dependencies
 * [libexponent](https://github.com/mathinjenkins/libexponent)
+
 ### Build
 * `git clone git@github.com:mathinjenkins/libeuler.git`
 * `cd libeuler`
