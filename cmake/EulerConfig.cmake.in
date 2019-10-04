@@ -5,8 +5,4 @@ list(APPEND CMAKE_MODULE_PATH ${Euler_CMAKE_DIR})
 find_package(Exponent 1.0 REQUIRED CONFIG)
 list(REMOVE_AT CMAKE_MODULE_PATH -1)
 
-if(NOT TARGET Euler::Euler)
-    include("${Euler_CMAKE_DIR}/EulerTargets.cmake")
-endif()
-
 set(Euler_LIBRARIES Euler::Euler)

@@ -3,6 +3,20 @@ project(libeuler VERSION 1.0.0 LANGUAGES CXX)
 
 list(INSERT CMAKE_MODULE_PATH 0 ${CMAKE_SOURCE_DIR}/cmake)
 
+add_subdirectory(module/libexponent)
+
+include(GNUInstallDirs)
+set(INSTALL_CONFIGDIR ${CMAKE_INSTALL_LIBDIR}/cmake/Exponent)
+
+install(EXPORT exponent-targets
+  FILE
+    ExponentTargets.cmake
+  NAMESPACE
+    Exponent::
+  DESTINATION
+    ${INSTALL_CONFIGDIR}
+)
+
 find_package(Exponent 1.0 REQUIRED)
 
 add_library(euler
@@ -17,6 +31,7 @@ target_include_directories(euler
         $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
     PRIVATE
         ${CMAKE_CURRENT_SOURCE_DIR}/src
+        ${CMAKE_CURRENT_SOURCE_DIR}/module/libexponent/include
 )
 
 target_compile_features(euler PRIVATE cxx_auto_type)
@@ -24,7 +39,7 @@ target_compile_options(euler PRIVATE $<$<CXX_COMPILER_ID:GNU>:-Wall>)
 
 target_link_libraries(euler
     PRIVATE
-        Exponent::Exponent
+        Exponent
 )
 
 include(GNUInstallDirs)
@@ -70,5 +85,3 @@ install(FILES
 export(EXPORT euler-targets FILE ${CMAKE_CURRENT_BINARY_DIR}/EulerTargets.cmake NAMESPACE Euler::)
 
 export(PACKAGE Euler)
-
-add_subdirectory(test)
